@@ -137,25 +137,25 @@ nav a {
   border: 0;
 }
 
-.dsmovie-form-container {
+.dsmovie-description-container {
   padding: 40px 0;
   max-width: 600px;
 }
 
-.dsmovie-form{
+.dsmovie-description{
   width: 100%;
 }
 
-.dsmovie-form-group{
+.dsmovie-description-group{
   margin-bottom: 20px;
 }
 
-.dsmovie-form-group label{
+.dsmovie-description-group label{
   font-size: 12px;
   color: var(--text-light-gray);
 }
 
-.dsmovie-form-description{
+.dsmovie-description{
   background-color: var(--white);
   padding: 20px;
   display: flex;
@@ -164,13 +164,13 @@ nav a {
   border-radius: 0 0 8px 8px;
 }
 
-.dsmovie-form-description h3{
-  font-size: 20px;
+.dsmovie-description h3{
+  font-size: 25px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.dsmovie-form-btn-container{
+.dsmovie-description-btn-container{
   height: 100px;
   display: flex;
   flex-direction: column;
