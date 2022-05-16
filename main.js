@@ -1,7 +1,7 @@
 const create = document.querySelector('#create')
 
 function getApi() {
-  return  axios
+  return axios
     .get(
       'https://api.themoviedb.org/3/movie/popular?api_key=26002fc96d1675bd99be21f41d4c87bc&language=pt-BR&page=1'
     )
@@ -18,6 +18,7 @@ getApi().then(res => {
   const array = res
 
   array.forEach(element => {
+
     var card = document.createElement('div')
     card.classList.add('col-sm-6', 'col-lg-4', 'col-xl-3', 'mb-3')
     create.appendChild(card)
@@ -37,14 +38,48 @@ getApi().then(res => {
     var conteudoTitulo = document.createTextNode(element.title)
     titulo.appendChild(conteudoTitulo)
 
-    var avaliar = document.createElement('a')
-    var conteudoAvaliar = document.createTextNode('Avaliar')
-    avaliar.setAttribute('href', 'form.html')
-    avaliar.classList.add('dsmovie-btn')
-    avaliar.appendChild(conteudoAvaliar)
-
     cardChild2.appendChild(titulo)
-    cardChild2.appendChild(avaliar)
+
+    var cardChild3 = document.createElement('div')
+    cardChild3.classList.add('dsmovie-card-description-bottom')
+
+    var cardChild4 = document.createElement('div')
+    cardChild4.classList.add('stars')
+
+    var avaliacao = document.createElement('h4')
+    var conteudoAvaliacao = document.createTextNode(element.vote_average)
+    cardChild4.appendChild(conteudoAvaliacao)
+
+    var imagemEstrela = document.createElement('img')
+    imagemEstrela.setAttribute('src', 'img/star-full.svg')
+    cardChild4.appendChild(imagemEstrela)
+
+    var totalAvaliacao = document.createElement('p')
+    var conteudoTotalAvaliacao = document.createTextNode(
+      `${element.vote_count} avaliações`
+    )
+    totalAvaliacao.appendChild(conteudoTotalAvaliacao)
+
+    cardChild3.appendChild(cardChild4)
+    cardChild3.appendChild(totalAvaliacao)
+
+    var descricao = document.createElement('a')
+    var conteudoDescricao = document.createTextNode('Descrição')
+    descricao.setAttribute('href', 'description.html')
+    descricao.onclick = () => {
+      let descricao = JSON.stringify(element.overview)
+      let titulo = JSON.stringify(element.title)
+      let poster = JSON.stringify(`${image_path}${element.backdrop_path}`)
+      sessionStorage.setItem('descricao', descricao)
+      sessionStorage.setItem('titulo', titulo)
+      sessionStorage.setItem('poster', poster)
+      
+    }
+    descricao.classList.add('dsmovie-btn')
+    descricao.appendChild(conteudoDescricao)
+
+    cardChild3.appendChild(descricao)
+    cardChild2.appendChild(cardChild3)
     cardChild.appendChild(cardChild2)
     card.appendChild(cardChild)
   })
