@@ -13,7 +13,7 @@ function getApi() {
     })
 }
 
-getApi().then(res => {
+const filmes = getApi().then(res => {
   const image_path = 'https://image.tmdb.org/t/p/w500'
   const array = res
 
@@ -49,3 +49,5 @@ getApi().then(res => {
     card.appendChild(cardChild)
   })
 })
+
+export default filmes
