@@ -19,7 +19,6 @@ function getApi() {
         ...response[1].data.results,
         ...response[2].data.results
       ]
-      console.log(arr)
       return arr
     })
     .catch(err => {
