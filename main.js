@@ -1,12 +1,26 @@
 const create = document.querySelector('#create')
 
 function getApi() {
-  return axios
-    .get(
+  return Promise.all([
+    axios.get(
       'https://api.themoviedb.org/3/movie/popular?api_key=26002fc96d1675bd99be21f41d4c87bc&language=pt-BR&page=1'
+    ),
+    axios.get(
+      'https://api.themoviedb.org/3/movie/upcoming?api_key=26002fc96d1675bd99be21f41d4c87bc&language=pt-BR&page=1'
+    ),
+    axios.get(
+      'https://api.themoviedb.org/3/movie/top_rated?api_key=26002fc96d1675bd99be21f41d4c87bc&language=pt-BR&page=1'
     )
+  ])
     .then(response => {
-      return response.data.results
+      let arr = []
+      arr = [
+        ...response[0].data.results,
+        ...response[1].data.results,
+        ...response[2].data.results
+      ]
+      console.log(arr)
+      return arr
     })
     .catch(err => {
       console.error(err)
@@ -18,7 +32,6 @@ getApi().then(res => {
   const array = res
 
   array.forEach(element => {
-
     let card = document.createElement('div')
     card.classList.add('col-sm-6', 'col-lg-4', 'col-xl-3', 'mb-3')
     create.appendChild(card)
@@ -73,7 +86,6 @@ getApi().then(res => {
       sessionStorage.setItem('descricao', descricao)
       sessionStorage.setItem('titulo', titulo)
       sessionStorage.setItem('poster', poster)
-      
     }
     descricao.classList.add('dsmovie-btn')
     descricao.appendChild(conteudoDescricao)
