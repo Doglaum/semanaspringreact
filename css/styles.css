@@ -25,10 +25,18 @@ h6 {
   margin: 0;
 }
 
-html,
+
 body {
-  background-color: var(--bg-gray);
-}
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    146deg,
+    rgba(0, 0, 0, 1) 24%,
+    rgba(14, 28, 34, 1) 45%,
+    rgba(18, 37, 46, 1) 70%,
+    rgba(3, 47, 68, 1) 90%);
+    min-height: 100vh;
+
+ }
 a,
 a:hover {
   text-decoration: none;
@@ -36,11 +44,12 @@ a:hover {
 }
 
 header {
-  background-color: var(--color-primary);
+  background-color: rgb(0, 0, 0);
   color: var(--white);
-  height: 60px;
+  height: 100px;
   display: flex;
   align-items: center;
+  border-bottom: solid 2px white;
 }
 
 nav {
@@ -62,6 +71,7 @@ nav a {
 .dsmovie-contact-container {
   display: flex;
   align-items: center;
+  
 }
 .dsmovie-contact-container img {
   margin-right: 10px;
@@ -73,7 +83,6 @@ nav a {
 
 #dsmovie-card-list {
   padding: 40px 0;
-  
 }
 
 .dsmovie-card img {
@@ -97,13 +106,13 @@ nav a {
   font-weight: 700;
 }
 
-.dsmovie-card-description-bottom{
+.dsmovie-card-description-bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.dsmovie-card-description-bottom img{
+.dsmovie-card-description-bottom img {
   width: 22px;
 }
 
@@ -114,9 +123,8 @@ nav a {
   font-size: 22px;
   font-weight: 700;
   color: var(--star-yellow);
-  
 }
-.dsmovie-card-description-bottom p{
+.dsmovie-card-description-bottom p {
   font-size: 12px;
   font-weight: 400;
   color: var(--text-light-gray);
@@ -142,20 +150,8 @@ nav a {
   max-width: 600px;
 }
 
-.dsmovie-description{
+.dsmovie-description {
   width: 100%;
-}
-
-.dsmovie-description-group{
-  margin-bottom: 20px;
-}
-
-.dsmovie-description-group label{
-  font-size: 12px;
-  color: var(--text-light-gray);
-}
-
-.dsmovie-description{
   background-color: var(--white);
   padding: 20px;
   display: flex;
@@ -164,16 +160,35 @@ nav a {
   border-radius: 0 0 8px 8px;
 }
 
-.dsmovie-description h3{
+.dsmovie-description p {
+  line-height: 25px;
+  font-size: 18px;
+  color: var(--text-light-gray);
+}
+
+.dsmovie-description-group {
+  margin-bottom: 20px;
+}
+
+.dsmovie-description-group label {
+  font-size: 12px;
+  color: var(--text-light-gray);
+}
+
+.dsmovie-description h3 {
   font-size: 25px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.dsmovie-description-btn-container{
+.dsmovie-description-btn-container {
   height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+#dsmovie-description-section {
+  min-height: 100vh;
 }

@@ -19,43 +19,43 @@ getApi().then(res => {
 
   array.forEach(element => {
 
-    var card = document.createElement('div')
+    let card = document.createElement('div')
     card.classList.add('col-sm-6', 'col-lg-4', 'col-xl-3', 'mb-3')
     create.appendChild(card)
 
-    var cardChild = document.createElement('div')
+    let cardChild = document.createElement('div')
     cardChild.classList.add('dsmovie-card')
 
-    var imagem = document.createElement('img')
+    let imagem = document.createElement('img')
     imagem.setAttribute('src', `${image_path}${element.backdrop_path}`)
     imagem.setAttribute('alt', element.title)
     cardChild.appendChild(imagem)
 
-    var cardChild2 = document.createElement('div')
+    let cardChild2 = document.createElement('div')
     cardChild2.classList.add('dsmovie-card-description')
 
-    var titulo = document.createElement('h3')
-    var conteudoTitulo = document.createTextNode(element.title)
+    let titulo = document.createElement('h3')
+    let conteudoTitulo = document.createTextNode(element.title)
     titulo.appendChild(conteudoTitulo)
 
     cardChild2.appendChild(titulo)
 
-    var cardChild3 = document.createElement('div')
+    let cardChild3 = document.createElement('div')
     cardChild3.classList.add('dsmovie-card-description-bottom')
 
-    var cardChild4 = document.createElement('div')
+    let cardChild4 = document.createElement('div')
     cardChild4.classList.add('stars')
 
-    var avaliacao = document.createElement('h4')
-    var conteudoAvaliacao = document.createTextNode(element.vote_average)
+    let avaliacao = document.createElement('h4')
+    let conteudoAvaliacao = document.createTextNode(element.vote_average)
     cardChild4.appendChild(conteudoAvaliacao)
 
-    var imagemEstrela = document.createElement('img')
+    let imagemEstrela = document.createElement('img')
     imagemEstrela.setAttribute('src', 'img/star-full.svg')
     cardChild4.appendChild(imagemEstrela)
 
-    var totalAvaliacao = document.createElement('p')
-    var conteudoTotalAvaliacao = document.createTextNode(
+    let totalAvaliacao = document.createElement('p')
+    let conteudoTotalAvaliacao = document.createTextNode(
       `${element.vote_count} avaliações`
     )
     totalAvaliacao.appendChild(conteudoTotalAvaliacao)
@@ -63,8 +63,8 @@ getApi().then(res => {
     cardChild3.appendChild(cardChild4)
     cardChild3.appendChild(totalAvaliacao)
 
-    var descricao = document.createElement('a')
-    var conteudoDescricao = document.createTextNode('Descrição')
+    let descricao = document.createElement('a')
+    let conteudoDescricao = document.createTextNode('Descrição')
     descricao.setAttribute('href', 'description.html')
     descricao.onclick = () => {
       let descricao = JSON.stringify(element.overview)
