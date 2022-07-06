@@ -77,7 +77,7 @@ getApi().then(res => {
 
     let descricao = document.createElement('a')
     let conteudoDescricao = document.createTextNode('Descrição')
-    descricao.setAttribute('href', 'description.html')
+    descricao.setAttribute('href', `description.html?id=${element.id}`)
     descricao.onclick = () => {
       let descricao = JSON.stringify(element.overview)
       let titulo = JSON.stringify(element.title)
